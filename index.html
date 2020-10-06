@@ -1,0 +1,118 @@
+<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>     
+    <link rel="stylesheet" href="mystyle.css">	
+	<style>
+		
+	</style>
+	<head>
+	<body>
+		<div id="boticon" onclick="myFunction()"></div>
+		<div id="botsection">
+			<div id="bothead">
+			<img src='https://tatademo.s3.ap-south-1.amazonaws.com/thcm-edost/thcmIcon.png' id="topIcon">
+			<span id="botName"> TIA </span><div></div><span class="dot"></span> <span id="botStatus">  online </span>
+			<select name="language" id="language">
+				<option value="English">English</option>
+				<option value="Hindi">Hindi</option>
+				<option value="Gujarati">Gujarati</option>
+				<option value="Kannada">Kannada</option>
+			  </select>
+			<span id="minimizeIcon" class="Line-12" onclick="minimizeChat()"> _ </span>
+			<span id="closeIcon" onclick="closeChat()"> X </span>
+			
+		</div>
+			<div id="bot" ></div>
+		</div>
+		<!-- <iframe src='https://webchat.botframework.com/embed/DemoBotWebApp?s=Bp7Vgae6Zbo.97NJwE1uuEHKybkI5uuqTCnXPrm1vf9xK4dBxmlZG20'  style='min-width: 300px; width: 80%; min-height: 300px;'></iframe> -->
+	</body>
+	<script>
+	var close = false;
+	function myFunction() {
+		 document.getElementById("botsection").style.display = "block";
+		  document.getElementById('boticon').style.display = "none";
+		  console.log('inside myFunction '+close);
+		  if(close){
+		  console.log('inside myFunctionif '+close);
+		  //document.getElementById('botsection').append('div');
+          document.getElementById('botsection').innerHTML += '<div id="bot" ></div>';
+		  window.WebChat.renderWebChat(
+            {
+               directLine: window.WebChat.createDirectLine({
+                  token: 'NXjfD9Cz-Po.MHogBgymOsIIN1GlqhTOAoduYAK7DDu2ecahAEBUrZw'
+               }),
+			    styleOptions: {
+				rootHeight: '80%',
+				rootWidth: '80%',
+				primaryFont: "'Arial', sans-serif"				
+			   },
+                styleSet,
+               userID: 'YOUR_USER_ID',
+               username: 'Web Chat User',
+               locale: 'en-US',
+               botAvatarInitials: 'WC',
+               userAvatarInitials: 'WW'
+            },
+            document.getElementById('bot')
+         );
+		 close = false;
+		 }}
+		function minimizeChat() {
+		  document.getElementById("botsection").style.display = "none";
+		  document.getElementById('boticon').style.display = "block";
+		}
+		
+		function closeChat() {
+		if(confirm("Are you sure you want to end the conversation?")){
+		  document.getElementById("botsection").style.display = "none";
+		  document.getElementById('boticon').style.display = "block";
+		  document.getElementById('bot').remove();
+		  close = true;
+		  console.log('inside closeChat '+close);}
+		}
+		
+		const styleSet = window.WebChat.createStyleSet({
+            bubbleBackground: 'rgba(0, 0, 255, .1)',
+            bubbleFromUserBackground: 'rgba(115, 115, 115, 0.8)',
+			//suggestedActionBackground: 'Red',
+			 bubbleBorderRadius: 10,
+			  bubbleFromUserBorderRadius: 10,
+			  suggestedActionBorderRadius: 35,
+			  botAvatarInitials: 'TIA',
+			  botAvatarImage: 'https://tatademo.s3.ap-south-1.amazonaws.com/thcm-edost/thcmIcon.png',
+
+			  backgroundImage: 'https://tatademo.s3.ap-south-1.amazonaws.com/thcm-edost/thcmIcon.png',
+			  backgroundColor: '#EEEEEE',
+            //userAvatarInitials: 'WC',
+			rootHeight: '80%',
+				rootWidth: '80%',
+				primaryFont: "'Arial', sans-serif"	
+         });
+
+         // After generated, you can modify the CSS rules
+         styleSet.textContent = {
+            ...styleSet.textContent,
+            fontFamily: " 'Arial', sans-serif",
+            //fontWeight: 'bold'
+		 };
+		 styleSet.activities = {
+  ...styleSet.activities,
+  //backgroundImage: "url('https://demosites.s3.amazonaws.com/SAPSF/backgroundImage.png')"
+}
+         window.WebChat.renderWebChat(
+            {
+               directLine: window.WebChat.createDirectLine({
+                  token: 'NXjfD9Cz-Po.MHogBgymOsIIN1GlqhTOAoduYAK7DDu2ecahAEBUrZw'
+               }),
+			    styleSet,
+               userID: 'YOUR_USER_ID',
+               username: 'Web Chat User',
+               locale: 'en-US',
+               botAvatarInitials: 'WC',
+               userAvatarInitials: 'WW'
+            },
+            document.getElementById('bot')
+         );
+    </script>
+</html>

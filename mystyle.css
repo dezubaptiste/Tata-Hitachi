@@ -1,0 +1,103 @@
+:root {
+  --main-bg-color: coral;  
+  --rootWidth : '100%'
+}
+#botsection{
+			min-width: 40%;
+			min-height: 20%;
+			float: right;
+			display:none;
+			
+		}		
+		body{
+			
+			/*background-image: url("https://demosites.s3.amazonaws.com/SAPSF/backgroundImage.png");*/
+			background-color: black !important;
+        
+       
+       
+		}
+		#bothead{
+		    background-color: white;
+			/*padding: 5px 5px 5px 5px;*/
+			/*border-radius: 3px 3px 0px 0px;
+			min-width: 26.7rem;
+			min-height: 4.5rem;*/
+			color: white;
+			/*font-size: x-large;
+			border: 1px solid #1fa1ed!important; */
+			font-family: Arial, Helvetica, sans-serif;
+			
+			
+		
+		}
+		
+		#topIcon
+		{
+			height: 5%;
+    		width: 3%;
+    		background-size: contain;
+    		position: fixed;
+    		margin-top: 5px;
+    		margin-left: 1%;
+		}
+		
+		#boticon{
+			animation-name: floating; 
+			animation-duration: 3s; 
+			animation-iteration-count: infinite; 
+			animation-timing-function: ease-in-out; 
+			background-image: url(https://demosites.s3.amazonaws.com/SAPSF/chatbot-icon.jpg);
+			border-radius: 50%;
+			height: 14%;
+			width: 7%;
+			background-size: contain;
+			position:fixed;
+			right:2%;
+			bottom:2%;	
+			cursor: pointer;			
+		}
+		#botName{
+			
+			font-weight: bold;
+			margin-left: 18%;
+			height: 8%;
+			width: 5%;
+			color: #737373;
+		}
+		#botStatus{
+			 color: navy;
+			 font-size: 7 px;
+    
+		}
+		#language{
+			margin-left: 30%;
+		}
+		#minimizeIcon{
+			margin-left: 10%;
+			border-radius: 50%;
+			background-size: contain;
+			margin-top: -4px;
+			color: grey;
+			font-weight: bold;
+			
+		}
+		#closeIcon{
+			margin-left: 3%;
+			color: grey;
+		}
+		.dot {
+			margin-left: 18%;
+    height: 5px;
+    width: 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: green;
+}
+		
+		@keyframes floating { 
+			0% { transform: translate(0,  0px); } 
+			50%  { transform: translate(0, 10px); } 
+			100%   { transform: translate(0, -0px); }     
+		} 
